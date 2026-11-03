@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Spesial Acara</title>
+    <!-- Google Fonts & Tailwind CSS untuk Tampilan Rapi -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif-custom { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-stone-900 text-stone-100 antialiased">
+
+    <!-- HALAMAN SAMPUL / COVER -->
+    <section id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-stone-950 px-6 text-center transition-all duration-700">
+        <div class="max-w-md">
+            <p class="text-xs tracking-widest uppercase text-amber-400 mb-2">Undangan Eksklusif</p>
+            <h1 class="font-serif-custom text-4xl mb-4 text-amber-100">Pernikahan & Syukuran</h1>
+            <p id="nama-tamu-cover" class="text-stone-300 mb-6 text-sm">Kepada Yth. Bapak/Ibu/Saudara/i,<br><strong class="text-white text-lg">Tamu Undangan</strong></p>
+            <button onclick="bukaUndangan()" class="bg-amber-600 hover:bg-amber-500 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg transition transform hover:scale-105">
+                Buka Undangan
+            </button>
+        </div>
+    </section>
+
+    <!-- KONTEN UTAMA UNDANGAN -->
+    <main class="max-w-xl mx-auto px-6 py-16 text-center space-y-16">
+        
+        <!-- Bagian Judul Utama -->
+        <section class="space-y-4">
+            <span class="text-amber-400 text-sm tracking-widest uppercase">The Wedding Of</span>
+            <h2 class="font-serif-custom text-5xl text-amber-100">Ahmad & Siti</h2>
+            <p class="text-stone-400 text-sm">Kepada Yth: <span id="nama-tamu-main" class="font-semibold text-white">Tamu Undangan</span></p>
+        </section>
+
+        <!-- Waktu & Tempat -->
+        <section class="bg-stone-800/50 border border-stone-700/50 p-8 rounded-2xl shadow-xl space-y-6">
+            <div>
+                <h3 class="font-serif-custom text-2xl text-amber-200 mb-2">Waktu Acara</h3>
+                <p class="text-stone-300">Minggu, 15 Desember 2026</p>
+                <p class="text-stone-400 text-sm">Pukul 09.00 WIB s.d. Selesai</p>
+            </div>
+            <div class="border-t border-stone-700 pt-4">
+                <h3 class="font-serif-custom text-xl text-amber-200 mb-1">Lokasi</h3>
+                <p class="text-stone-300 text-sm">Gedung Serbaguna An-Nawa</p>
+                <p class="text-stone-400 text-xs mt-1">Banten, Indonesia</p>
+            </div>
+        </section>
+
+        <!-- Pesan Penutup / Footer -->
+        <footer class="text-stone-500 text-xs pb-10">
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+            <p class="mt-4 text-amber-500/80 font-medium">Digital Invitation by Your Brand</p>
+        </footer>
+    </main>
+
+    <!-- AUDIO LATAR (Opsional) -->
+    <audio id="background-audio" loop>
+        <!-- Ganti link di bawah dengan file musik latar (.mp3) pilihan Anda -->
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Skrip untuk mendeteksi nama tamu dari URL (Contoh: namewebmu.github.io/?kepada=Budi)
+        const urlParams = new URLSearchParams(window.location.search);
+        const namaTamu = urlParams.get('kepada');
+        
+        if (namaTamu) {
+            // Ubah format garis bawah (_) menjadi spasi jika ada
+            const formattedName = namaTamu.replace(/_/g, ' ');
+            document.getElementById('nama-tamu-cover').innerHTML = `Kepada Yth. Bapak/Ibu/Saudara/i,<br><strong class="text-white text-lg">${formattedName}</strong>`;
+            document.getElementById('nama-tamu-main').innerText = formattedName;
+        }
+
+        // Fungsi saat tombol "Buka Undangan" diklik
+        function bukaUndangan() {
+            const cover = document.getElementById('cover');
+            cover.style.opacity = '0';
+            setTimeout(() => {
+                cover.style.display = 'none';
+            }, 700);
+
+            // Putar musik latar otomatis saat dibuka
+            const audio = document.getElementById('background-audio');
+            audio.play().catch(error => {
+                console.log("Audio autoplay dicegah oleh browser:", error);
+            });
+        }
+    </script>
+</body>
+</html>
