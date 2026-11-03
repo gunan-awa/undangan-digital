@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Peresmian Sekretariat IKPM Gontor Cabang Banten</title>
-    <!-- Ikon Favicon disesuaikan ke format JPG -->
+    <!-- Ikon Favicon -->
     <link rel="icon" type="image/jpeg" href="logo-ikpm.jpg">
     
     <!-- Tailwind CSS -->
@@ -19,14 +19,19 @@
 
     <!-- HALAMAN SAMPUL (COVER) -->
     <section id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#091b10] px-6 text-center transition-all duration-700">
-        <div class="max-w-md space-y-4">
-            <!-- LOGO IKPM BANTEN (JPG) -->
-            <div class="flex justify-center mb-2">
-                <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-20 h-20 object-contain rounded-lg shadow-md" onerror="this.style.display='none'">
+        <div class="max-w-md space-y-4 w-full">
+            
+            <!-- LOGO & TEKS BERDAMPINGAN DI COVER -->
+            <div class="flex items-center justify-center space-x-3 mb-2 text-left">
+                <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-14 h-14 object-contain rounded-lg shadow-md shrink-0" onerror="this.style.display='none'">
+                <div>
+                    <h2 class="font-serif-custom text-xl font-bold text-amber-100 tracking-wide">IKPM BANTEN</h2>
+                    <p class="text-[10px] text-emerald-300 uppercase tracking-wider leading-tight">IKATAN KELUARGA PONDOK MODERN CABANG BANTEN</p>
+                </div>
             </div>
 
-            <span class="text-xs tracking-widest uppercase text-amber-400 font-semibold">Undangan Resmi</span>
-            <h1 class="font-serif-custom text-3xl md:text-4xl text-amber-100 leading-snug">Peresmian Gedung Sekretariat IKPM Gontor Cabang Banten</h1>
+            <span class="text-xs tracking-widest uppercase text-amber-400 font-semibold block pt-2">Undangan Resmi</span>
+            <h1 class="font-serif-custom text-2xl md:text-3xl text-amber-100 leading-snug">Peresmian Gedung Sekretariat IKPM Gontor Cabang Banten</h1>
             
             <div id="nama-tamu-cover" class="bg-[#113822] border border-emerald-800/60 p-4 rounded-xl my-4 shadow-lg">
                 <p class="text-emerald-300 text-xs mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
@@ -42,15 +47,18 @@
     <!-- KONTEN UTAMA UNDANGAN -->
     <main class="max-w-xl mx-auto px-6 py-16 space-y-12">
         
-        <!-- Header Acara & Logo Utama -->
+        <!-- Header Acara & Logo Berdampingan -->
         <section class="text-center space-y-4">
-            <div class="flex justify-center">
-                <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-24 h-24 object-contain rounded-xl shadow-lg" onerror="this.style.display='none'">
+            <div class="flex items-center justify-center space-x-3">
+                <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-16 h-16 object-contain rounded-xl shadow-lg shrink-0" onerror="this.style.display='none'">
+                <div class="text-left">
+                    <h2 class="font-serif-custom text-2xl font-bold text-amber-100 tracking-wide">IKPM BANTEN</h2>
+                    <p class="text-[11px] text-emerald-300 uppercase tracking-wider leading-tight">IKATAN KELUARGA PONDOK MODERN CABANG BANTEN</p>
+                </div>
             </div>
 
-            <span class="text-amber-400 text-xs tracking-widest uppercase font-semibold">IKATAN KELUARGA PONDOK MODERN GONTOR</span>
-            <h2 class="font-serif-custom text-4xl text-amber-100">Cabang Banten</h2>
-            <div class="w-16 h-0.5 bg-amber-500 mx-auto my-2"></div>
+            <div class="w-16 h-0.5 bg-amber-500 mx-auto my-3"></div>
+            <h2 class="font-serif-custom text-3xl text-amber-100">Peresmian Gedung Sekretariat</h2>
             <p class="text-emerald-200/90 text-sm max-w-md mx-auto">
                 Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung baru.
             </p>
