@@ -17,6 +17,11 @@
     <!-- HALAMAN SAMPUL (COVER) -->
     <section id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-stone-950 px-6 text-center transition-all duration-700">
         <div class="max-w-md space-y-4">
+            <!-- LOGO DI COVER (Ganti nama file gambar sesuai yang Anda upload nanti) -->
+            <div class="flex justify-center mb-2">
+                <img src="logo-ikpm.png" alt="Logo IKPM Banten" class="w-20 h-20 object-contain drop-shadow-md" onerror="this.style.display='none'">
+            </div>
+
             <span class="text-xs tracking-widest uppercase text-emerald-400 font-semibold">Undangan Resmi</span>
             <h1 class="font-serif-custom text-3xl md:text-4xl text-emerald-100 leading-snug">Peresmian Gedung Sekretariat IKPM Gontor Cabang Banten</h1>
             
@@ -34,8 +39,13 @@
     <!-- KONTEN UTAMA UNDANGAN -->
     <main class="max-w-xl mx-auto px-6 py-16 space-y-12">
         
-        <!-- Header Acara -->
+        <!-- Header Acara & Logo Utama -->
         <section class="text-center space-y-4">
+            <!-- LOGO DI HALAMAN UTAMA -->
+            <div class="flex justify-center">
+                <img src="logo-ikpm.png" alt="Logo IKPM Banten" class="w-24 h-24 object-contain drop-shadow-lg" onerror="this.style.display='none'">
+            </div>
+
             <span class="text-emerald-400 text-xs tracking-widest uppercase font-semibold">IKATAN KELUARGA PONDOK MODERN GONTOR</span>
             <h2 class="font-serif-custom text-4xl text-emerald-100">Cabang Banten</h2>
             <div class="w-16 h-0.5 bg-emerald-500 mx-auto my-2"></div>
@@ -215,6 +225,7 @@
                 });
         }
 
+        muatDalogDaftarTamu = muatDaftarTamu;
         muatDaftarTamu();
     </script>
 </body>
