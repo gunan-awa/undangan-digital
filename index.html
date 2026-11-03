@@ -8,29 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d2818; }
         .font-serif-custom { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-stone-900 text-stone-100 antialiased selection:bg-emerald-600 selection:text-white">
+<body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white">
 
     <!-- HALAMAN SAMPUL (COVER) -->
-    <section id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-stone-950 px-6 text-center transition-all duration-700">
+    <section id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#091b10] px-6 text-center transition-all duration-700">
         <div class="max-w-md space-y-4">
-            <!-- LOGO DI COVER (Ganti nama file gambar sesuai yang Anda upload nanti) -->
+            <!-- LOGO IKPM BANTEN -->
             <div class="flex justify-center mb-2">
                 <img src="logo-ikpm.png" alt="Logo IKPM Banten" class="w-20 h-20 object-contain drop-shadow-md" onerror="this.style.display='none'">
             </div>
 
-            <span class="text-xs tracking-widest uppercase text-emerald-400 font-semibold">Undangan Resmi</span>
-            <h1 class="font-serif-custom text-3xl md:text-4xl text-emerald-100 leading-snug">Peresmian Gedung Sekretariat IKPM Gontor Cabang Banten</h1>
+            <span class="text-xs tracking-widest uppercase text-amber-400 font-semibold">Undangan Resmi</span>
+            <h1 class="font-serif-custom text-3xl md:text-4xl text-amber-100 leading-snug">Peresmian Gedung Sekretariat IKPM Gontor Cabang Banten</h1>
             
-            <div id="nama-tamu-cover" class="bg-stone-900/80 border border-stone-800 p-4 rounded-xl my-4">
-                <p class="text-stone-400 text-xs mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <div id="nama-tamu-cover" class="bg-[#113822] border border-emerald-800/60 p-4 rounded-xl my-4 shadow-lg">
+                <p class="text-emerald-300 text-xs mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
                 <strong class="text-white text-base">Keluarga Besar Alumni Gontor</strong>
             </div>
 
-            <button onclick="bukaUndangan()" class="bg-emerald-700 hover:bg-emerald-600 text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg transition transform hover:scale-105">
+            <button onclick="bukaUndangan()" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold px-8 py-3 rounded-full text-sm shadow-lg transition transform hover:scale-105">
                 Buka Undangan
             </button>
         </div>
@@ -41,41 +41,40 @@
         
         <!-- Header Acara & Logo Utama -->
         <section class="text-center space-y-4">
-            <!-- LOGO DI HALAMAN UTAMA -->
             <div class="flex justify-center">
                 <img src="logo-ikpm.png" alt="Logo IKPM Banten" class="w-24 h-24 object-contain drop-shadow-lg" onerror="this.style.display='none'">
             </div>
 
-            <span class="text-emerald-400 text-xs tracking-widest uppercase font-semibold">IKATAN KELUARGA PONDOK MODERN GONTOR</span>
-            <h2 class="font-serif-custom text-4xl text-emerald-100">Cabang Banten</h2>
-            <div class="w-16 h-0.5 bg-emerald-500 mx-auto my-2"></div>
-            <p class="text-stone-300 text-sm max-w-md mx-auto">
+            <span class="text-amber-400 text-xs tracking-widest uppercase font-semibold">IKATAN KELUARGA PONDOK MODERN GONTOR</span>
+            <h2 class="font-serif-custom text-4xl text-amber-100">Cabang Banten</h2>
+            <div class="w-16 h-0.5 bg-amber-500 mx-auto my-2"></div>
+            <p class="text-emerald-200/90 text-sm max-w-md mx-auto">
                 Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung baru.
             </p>
             <div class="pt-2">
-                <p class="text-stone-400 text-xs">Kepada Yth:</p>
-                <span id="nama-tamu-main" class="font-semibold text-emerald-300 text-lg">Keluarga Besar Alumni Gontor</span>
+                <p class="text-emerald-300 text-xs">Kepada Yth:</p>
+                <span id="nama-tamu-main" class="font-semibold text-amber-300 text-lg">Keluarga Besar Alumni Gontor</span>
             </div>
         </section>
 
         <!-- Detail Waktu & Tempat -->
-        <section class="bg-stone-800/40 border border-stone-700/60 p-8 rounded-2xl shadow-xl space-y-6">
+        <section class="bg-[#113822]/80 border border-emerald-800/60 p-8 rounded-2xl shadow-xl space-y-6">
             <div class="flex items-start space-x-4">
-                <div class="bg-emerald-900/50 p-3 rounded-lg text-emerald-400">📅</div>
+                <div class="bg-[#091b10] p-3 rounded-lg text-amber-400 border border-emerald-800">📅</div>
                 <div>
-                    <h3 class="text-stone-400 text-xs uppercase tracking-wider">Waktu Pelaksanaan</h3>
-                    <p class="text-stone-100 font-medium text-lg mt-0.5">Sabtu, 21 November 2026</p>
-                    <p class="text-stone-400 text-sm">Pukul 09.00 WIB s.d. Selesai</p>
+                    <h3 class="text-emerald-300 text-xs uppercase tracking-wider">Waktu Pelaksanaan</h3>
+                    <p class="text-white font-medium text-lg mt-0.5">Sabtu, 21 November 2026</p>
+                    <p class="text-emerald-300 text-sm">Pukul 09.00 WIB s.d. Selesai</p>
                 </div>
             </div>
 
-            <div class="border-t border-stone-700/60 pt-6 flex items-start space-x-4">
-                <div class="bg-emerald-900/50 p-3 rounded-lg text-emerald-400">📍</div>
+            <div class="border-t border-emerald-800/60 pt-6 flex items-start space-x-4">
+                <div class="bg-[#091b10] p-3 rounded-lg text-amber-400 border border-emerald-800">📍</div>
                 <div>
-                    <h3 class="text-stone-400 text-xs uppercase tracking-wider">Lokasi Sekretariat</h3>
-                    <p class="text-stone-100 font-medium text-base mt-0.5">Kantor Sekretariat IKPM Gontor Cabang Banten</p>
-                    <p class="text-stone-400 text-xs mt-1 leading-relaxed">Kelurahan Banjarsari, Kecamatan Cipocok Jaya, Kota Serang, Banten</p>
-                    <a href="https://maps.app.goo.gl/JY25QBvXgYrGnxDi8" target="_blank" class="inline-block mt-3 bg-stone-700 hover:bg-stone-600 text-emerald-300 text-xs font-medium px-4 py-2 rounded-lg transition">
+                    <h3 class="text-emerald-300 text-xs uppercase tracking-wider">Lokasi Sekretariat</h3>
+                    <p class="text-white font-medium text-base mt-0.5">Kantor Sekretariat IKPM Gontor Cabang Banten</p>
+                    <p class="text-emerald-300 text-xs mt-1 leading-relaxed">Kelurahan Banjarsari, Kecamatan Cipocok Jaya, Kota Serang, Banten</p>
+                    <a href="https://maps.app.goo.gl/JY25QBvXgYrGnxDi8" target="_blank" class="inline-block mt-3 bg-[#091b10] hover:bg-[#07130c] border border-emerald-700 text-amber-300 text-xs font-medium px-4 py-2 rounded-lg transition">
                         🗺️ Buka di Google Maps
                     </a>
                 </div>
@@ -83,53 +82,53 @@
         </section>
 
         <!-- BAGIAN FORM RSVP & BUKU TAMU -->
-        <section class="bg-stone-800/40 border border-stone-700/60 p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+        <section class="bg-[#113822]/80 border border-emerald-800/60 p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
             <div class="text-center">
-                <h3 class="font-serif-custom text-2xl text-emerald-100 mb-1">Konfirmasi Kehadiran</h3>
-                <p class="text-stone-400 text-xs">Silakan lengkapi data di bawah ini.</p>
+                <h3 class="font-serif-custom text-2xl text-amber-100 mb-1">Konfirmasi Kehadiran</h3>
+                <p class="text-emerald-300 text-xs">Silakan lengkapi data di bawah ini.</p>
             </div>
 
             <!-- Form Input -->
             <form id="rsvp-form" onsubmit="kirimPesan(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs text-stone-300 mb-1">Nama Lengkap & Gelar</label>
-                    <input type="text" id="nama" required placeholder="Contoh: Ustadz Ahmad, S.Pd" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-2.5 text-stone-100 text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs text-emerald-300 mb-1">Nama Lengkap & Gelar</label>
+                    <input type="text" id="nama" required placeholder="Contoh: Ustadz Ahmad, S.Pd" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-xs text-stone-300 mb-1">Nomor WhatsApp</label>
-                    <input type="tel" id="whatsapp" required placeholder="Contoh: 081234567890" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-2.5 text-stone-100 text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs text-emerald-300 mb-1">Nomor WhatsApp</label>
+                    <input type="tel" id="whatsapp" required placeholder="Contoh: 081234567890" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-xs text-stone-300 mb-1">Alamat / Domisili / Korda</label>
-                    <input type="text" id="alamat" required placeholder="Contoh: Serang / Kota Cilegon" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-2.5 text-stone-100 text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs text-emerald-300 mb-1">Alamat / Domisili / Korda</label>
+                    <input type="text" id="alamat" required placeholder="Contoh: Serang / Kota Cilegon" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-xs text-stone-300 mb-1">Tahun Lulusan / Angkatan Gontor</label>
-                    <input type="text" id="angkatan" required placeholder="Contoh: 2010 (Gontor 1 / Darussalam)" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-2.5 text-stone-100 text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs text-emerald-300 mb-1">Tahun Lulusan / Angkatan Gontor</label>
+                    <input type="text" id="angkatan" required placeholder="Contoh: 2010 (Gontor 1 / Darussalam)" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                 </div>
                 <div>
-                    <label class="block text-xs text-stone-300 mb-1">Status Kehadiran</label>
-                    <select id="kehadiran" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-4 py-2.5 text-stone-100 text-sm focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs text-emerald-300 mb-1">Status Kehadiran</label>
+                    <select id="kehadiran" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                         <option value="Hadir">Hadir Insya Allah</option>
                         <option value="Berhalangan">Berhalangan Hadir</option>
                     </select>
                 </div>
-                <button type="submit" id="btn-submit" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-medium py-2.5 rounded-lg text-sm transition shadow-md">
+                <button type="submit" id="btn-submit" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                     Kirim Konfirmasi
                 </button>
             </form>
 
             <!-- Daftar Tamu yang Hadir -->
-            <div class="border-t border-stone-700/60 pt-6 mt-6">
-                <h4 class="font-serif-custom text-lg text-emerald-200 mb-3 text-center">Daftar Tamu Konfirmasi</h4>
-                <div id="daftar-tamu" class="max-h-60 overflow-y-auto space-y-2 pr-1 text-xs text-stone-300">
-                    <p class="text-center text-stone-500 py-4">Memuat daftar tamu...</p>
+            <div class="border-t border-emerald-800/60 pt-6 mt-6">
+                <h4 class="font-serif-custom text-lg text-amber-200 mb-3 text-center">Daftar Tamu Konfirmasi</h4>
+                <div id="daftar-tamu" class="max-h-60 overflow-y-auto space-y-2 pr-1 text-xs text-emerald-200">
+                    <p class="text-center text-emerald-400 py-4">Memuat daftar tamu...</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="text-center text-stone-500 text-xs pb-10">
+        <footer class="text-center text-emerald-400/80 text-xs pb-10">
             <p>Pengurus IKPM Gontor Cabang Banten</p>
         </footer>
     </main>
@@ -147,7 +146,7 @@
         const namaTamu = urlParams.get('kepada');
         if (namaTamu) {
             const formattedName = namaTamu.replace(/_/g, ' ');
-            document.getElementById('nama-tamu-cover').innerHTML = `<p class="text-stone-400 text-xs mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p><strong class="text-white text-base">${formattedName}</strong>`;
+            document.getElementById('nama-tamu-cover').innerHTML = `<p class="text-emerald-300 text-xs mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p><strong class="text-white text-base">${formattedName}</strong>`;
             document.getElementById('nama-tamu-main').innerText = formattedName;
             document.getElementById('nama').value = formattedName;
         }
@@ -199,19 +198,19 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.length === 0) {
-                        container.innerHTML = `<p class="text-center text-stone-500 py-2">Belum ada konfirmasi kehadiran.</p>`;
+                        container.innerHTML = `<p class="text-center text-emerald-400 py-2">Belum ada konfirmasi kehadiran.</p>`;
                         return;
                     }
                     let html = '';
                     data.reverse().forEach(item => {
-                        let badgeColor = item.kehadiran === 'Hadir' ? 'bg-emerald-900/60 text-emerald-300 border-emerald-700' : 'bg-rose-900/60 text-rose-300 border-rose-700';
+                        let badgeColor = item.kehadiran === 'Hadir' ? 'bg-emerald-950 text-emerald-300 border-emerald-600' : 'bg-rose-950 text-rose-300 border-rose-600';
                         html += `
-                            <div class="bg-stone-900/80 border border-stone-800 p-3 rounded-lg space-y-1">
+                            <div class="bg-[#091b10] border border-emerald-800 p-3 rounded-lg space-y-1">
                                 <div class="flex justify-between items-center">
-                                    <span class="font-semibold text-stone-200 text-sm">${item.nama}</span>
+                                    <span class="font-semibold text-white text-sm">${item.nama}</span>
                                     <span class="px-2 py-0.5 rounded border text-[10px] ${badgeColor}">${item.kehadiran}</span>
                                 </div>
-                                <div class="text-stone-400 text-[11px] flex flex-wrap gap-x-3 gap-y-0.5">
+                                <div class="text-emerald-300/80 text-[11px] flex flex-wrap gap-x-3 gap-y-0.5">
                                     <span>📍 ${item.alamat}</span>
                                     <span>🎓 Angkatan: ${item.angkatan}</span>
                                 </div>
@@ -221,11 +220,10 @@
                     container.innerHTML = html;
                 })
                 .catch(err => {
-                    container.innerHTML = `<p class="text-center text-stone-500 py-2">Gagal memuat daftar tamu.</p>`;
+                    container.innerHTML = `<p class="text-center text-emerald-400 py-2">Gagal memuat daftar tamu.</p>`;
                 });
         }
 
-        muatDalogDaftarTamu = muatDaftarTamu;
         muatDaftarTamu();
     </script>
 </body>
