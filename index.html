@@ -293,66 +293,155 @@
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        
+        function tampilkanAlert(pesan, judul = "Informasi", tipe = "info") {
+            const lama = document.getElementById("custom-alert");
+            if (lama) lama.remove();
 
+            const warna = tipe === "success" ? "#15803d" :
+                          tipe === "error" ? "#dc2626" : "#0f766e";
+
+           const overlay = document.createElement("div");
+           overlay.id = "custom-alert";
+
+           overlay.style.cssText = `
+               position: fixed;
+               inset: 0;
+               z-index: 999999;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               background: rgba(0,0,0,0.55);
+               padding: 20px;
+           `;
+
+           overlay.innerHTML = `
+               <div style="
+                   background: white;
+                   width: 100%;
+                   max-width: 360px;
+                   border-radius: 16px;
+                   padding: 25px 22px;
+                   text-align: center;
+                   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+                   font-family: Arial, sans-serif;
+               ">
+                   <div style="
+                       font-size: 17px;
+                       font-weight: bold;
+                       color: ${warna};
+                       margin-bottom: 12px;
+                   ">${judul}</div>
+
+                   <div style="
+                       font-size: 14px;
+                       line-height: 1.6;
+                       color: #333;
+                       margin-bottom: 22px;
+                   ">${pesan}</div>
+
+                   <button id="custom-alert-ok" style="
+                       background: ${warna};
+                       color: white;
+                       border: none;
+                       border-radius: 9px;
+                       padding: 11px 30px;
+                       font-size: 14px;
+                       font-weight: bold;
+                       cursor: pointer;
+                   ">OK</button>
+               </div>
+           `;
+
+           document.body.appendChild(overlay);
+
+           document.getElementById("custom-alert-ok").onclick = () => {
+               overlay.remove();
+           };
+       }
         function lanjutStep(stepTujuan) {
-            // Validasi menggunakan alert bersih tanpa nama domain browser
-            if (stepTujuan > 1 && !document.getElementById('nama').value.trim()) { 
-                alert("Silakan isi Nama Lengkap terlebih dahulu."); 
-                return; 
-            }
-            if (stepTujuan > 2 && !document.getElementById('whatsapp').value.trim()) { 
-                alert("Silakan isi Nomor WhatsApp terlebih dahulu."); 
-                return; 
-            }
-            if (stepTujuan > 3 && !document.getElementById('alamat').value.trim()) { 
-                alert("Silakan isi Alamat / Domisili terlebih dahulu."); 
-                return; 
-            }
-            if (stepTujuan > 4 && !document.getElementById('angkatan').value.trim()) { 
-                alert("Silakan isi Tahun Lulusan / Angkatan Gontor terlebih dahulu."); 
-                return; 
-            }
+    if (stepTujuan > 1 && !document.getElementById('nama').value.trim()) {
+        tampilkanAlert("Silakan isi Nama Lengkap terlebih dahulu.");
+        return;
+    }
 
-            for (let i = 1; i <= 5; i++) {
-                document.getElementById('step-' + i).classList.remove('active-step');
-            }
-            document.getElementById('step-' + stepTujuan).classList.add('active-step');
+    if (stepTujuan > 2 && !document.getElementById('whatsapp').value.trim()) {
+        tampilkanAlert("Silakan isi Nomor WhatsApp terlebih dahulu.");
+        return;
+    }
+
+    if (stepTujuan > 3 && !document.getElementById('alamat').value.trim()) {
+        tampilkanAlert("Silakan isi Alamat / Domisili terlebih dahulu.");
+        return;
+    }
+
+    if (stepTujuan > 4 && !document.getElementById('angkatan').value.trim()) {
+        tampilkanAlert("Silakan isi Tahun Lulusan / Angkatan Gontor terlebih dahulu.");
+        return;
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById('step-' + i).classList.remove('active-step');
+    }
+
+    document.getElementById('step-' + stepTujuan).classList.add('active-step');
+}
+
+function kirimPesan(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('btn-submit');
+    btn.innerText = "Mengirim...";
+    btn.disabled = true;
+
+    const formData = new FormData();
+    formData.append("nama", document.getElementById('nama').value);
+    formData.append("whatsapp", document.getElementById('whatsapp').value);
+    formData.append("alamat", document.getElementById('alamat').value);
+    formData.append("angkatan", document.getElementById('angkatan').value);
+    formData.append("kehadiran", document.getElementById('kehadiran').value);
+
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+    })
+    .then(data => {
+        tampilkanAlert(
+            "Konfirmasi kehadiran berhasil dikirim! Jazakumullahu khairan.",
+            "Berhasil",
+            "success"
+        );
+
+        document.getElementById('rsvp-form').reset();
+
+        if (namaTamu) {
+            document.getElementById('nama').value = namaTamu.replace(/_/g, ' ');
         }
 
-        function kirimPesan(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-submit');
-            btn.innerText = "Mengirim...";
-            btn.disabled = true;
+        lanjutStep(1);
 
-            const formData = new FormData();
-            formData.append("nama", document.getElementById('nama').value);
-            formData.append("whatsapp", document.getElementById('whatsapp').value);
-            formData.append("alamat", document.getElementById('alamat').value);
-            formData.append("angkatan", document.getElementById('angkatan').value);
-            formData.append("kehadiran", document.getElementById('kehadiran').value);
+        btn.innerText = "Kirim Konfirmasi ✅";
+        btn.disabled = false;
 
-            fetch(SCRIPT_URL, { method: 'POST', body: formData })
-                .then(res => res.json())
-                .then(data => {
-                    alert("Konfirmasi kehadiran berhasil dikirim! Jazakumullahu khairan.");
-                    document.getElementById('rsvp-form').reset();
-                    if (namaTamu) document.getElementById('nama').value = namaTamu.replace(/_/g, ' ');
-                    lanjutStep(1);
-                    
-                    btn.innerText = "Kirim Konfirmasi ✅";
-                    btn.disabled = false;
-                    muatDaftarTamu();
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Gagal mengirim data. Silakan coba lagi.");
-                    btn.innerText = "Kirim Konfirmasi ✅";
-                    btn.disabled = false;
-                });
-        }
+        muatDaftarTamu();
+    })
+    .catch(err => {
+        console.error(err);
 
-        function muatDaftarTamu() {
+        tampilkanAlert(
+            "Gagal mengirim data. Silakan coba lagi.",
+            "Gagal",
+            "error"
+        );
+
+        btn.innerText = "Kirim Konfirmasi ✅";
+        btn.disabled = false;
+    });
+}        function muatDaftarTamu() {
             const container = document.getElementById('daftar-tamu');
             fetch(SCRIPT_URL)
                 .then(res => res.json())
