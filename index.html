@@ -11,16 +11,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        <body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white h-screen flex flex-col justify-between"> }
-        .font-serif-custom { font-family: 'Playfair Display', serif; }
-        .page-section { display: none; }
-        .page-section.active { display: block; }
-        .form-step { display: none; }
-        .form-step.active-step { display: block; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #0d2818; 
+        }
+        .font-serif-custom { 
+            font-family: 'Playfair Display', serif; 
+        }
+        .page-section { 
+            display: none; 
+        }
+        .page-section.active { 
+            display: block; 
+        }
+        .form-step { 
+            display: none; 
+        }
+        .form-step.active-step { 
+            display: block; 
+        }
     </style>
 </head>
 <body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white min-h-screen flex flex-col justify-between">
-    
+
     <!-- HALAMAN SAMPUL (COVER) -->
     <section id="page-cover" class="page-section active fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#091b10] px-6 text-center transition-all duration-700">
         <div class="max-w-md space-y-4 w-full">
@@ -46,28 +59,31 @@
         </div>
     </section>
 
-    <!-- KONTEN UTAMA DENGAN SISTEM HALAMAN (KLIK MENU) -->
-    <main class="flex-1 max-w-xl w-full mx-auto px-6 py-6 overflow-y-auto">
+    <!-- KONTEN UTAMA DENGAN SISTEM HALAMAN -->
+    <main class="flex-1 max-w-xl w-full mx-auto px-6 py-6 overflow-y-auto pb-20">
         
         <!-- HALAMAN 1: BERANDA / ACARA -->
-        <div id="page-home" class="page-section space-y-8">
+        <div id="page-home" class="page-section space-y-6">
             <section class="text-center space-y-4">
                 <div class="flex items-center justify-center space-x-3">
-                    <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-16 h-16 object-contain rounded-xl shadow-lg shrink-0" onerror="this.style.display='none'">
+                    <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-14 h-14 object-contain rounded-xl shadow-lg shrink-0" onerror="this.style.display='none'">
                     <div class="text-left">
-                        <h2 class="font-serif-custom text-2xl font-bold text-amber-100 tracking-wide">IKPM BANTEN</h2>
-                        <p class="text-[11px] text-emerald-300 uppercase tracking-wider leading-tight">IKATAN KELUARGA PONDOK MODERN CABANG BANTEN</p>
+                        <h2 class="font-serif-custom text-xl font-bold text-amber-100 tracking-wide">IKPM BANTEN</h2>
+                        <p class="text-[10px] text-emerald-300 uppercase tracking-wider leading-tight">IKATAN KELUARGA PONDOK MODERN CABANG BANTEN</p>
                     </div>
                 </div>
 
                 <div class="w-16 h-0.5 bg-amber-500 mx-auto my-3"></div>
-                <h2 class="font-serif-custom text-3xl text-amber-100">Peresmian Gedung Sekretariat</h2>
+                <h2 class="font-serif-custom text-2xl text-amber-100">Peresmian Gedung Sekretariat</h2>
                 <p class="text-emerald-200/90 text-sm max-w-md mx-auto">
                     Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung baru.
                 </p>
+
+                <!-- FOTO GEDUNG SEKRETARIAT -->
                 <div class="pt-2">
-                    <img src="SEKRET-IKPM.jpg" alt="Peresmian Gedung Sekretariat IKPM Banten" class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover">
-        </div>
+                    <img src="SEKRET-IKPM.jpg" alt="Peresmian Gedung Sekretariat IKPM Banten" class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover" onerror="this.style.display='none'">
+                </div>
+
                 <div class="pt-2">
                     <p class="text-emerald-300 text-xs">Kepada Yth:</p>
                     <span id="nama-tamu-main" class="font-semibold text-amber-300 text-lg">Keluarga Besar Alumni Gontor</span>
@@ -106,7 +122,7 @@
             </div>
         </div>
 
-        <!-- HALAMAN 3: RSVP (SISTEM STEP BY STEP / NEXT) & BUKU TAMU -->
+        <!-- HALAMAN 3: RSVP & BUKU TAMU -->
         <div id="page-rsvp" class="page-section space-y-6">
             <div class="bg-[#113822]/80 border border-emerald-800/60 p-6 rounded-2xl shadow-xl space-y-6">
                 <div class="text-center">
@@ -199,8 +215,8 @@
 
     </main>
 
-    <!-- MENU NAVIGASI BAWAH (NAVBAR KLIK HALAMAN) -->
-    <nav id="bottom-nav" class="hidden bg-[#091b10] border-t border-emerald-800/60 py-3 px-4 shadow-2xl z-40">
+    <!-- MENU NAVIGASI BAWAH (FIXED NAVBAR) -->
+    <nav id="bottom-nav" class="hidden fixed bottom-0 left-0 right-0 bg-[#091b10] border-t border-emerald-800/60 py-3 px-4 shadow-2xl z-40">
         <div class="max-w-md mx-auto flex justify-around items-center text-xs">
             <button onclick="gantiHalaman('home')" id="nav-home" class="flex flex-col items-center text-amber-400 font-semibold transition">
                 <span class="text-lg">🏠</span>
@@ -263,33 +279,19 @@
 
             const activeBtn = document.getElementById('nav-' + halaman);
             activeBtn.className = "flex flex-col items-center text-amber-400 font-semibold transition";
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Fungsi perpindahan langkah (Step) pada form RSVP
         function lanjutStep(stepTujuan) {
-            // Validasi sederhana sebelum lanjut ke step berikutnya
-            if (stepTujuan > 1) {
-                const namaVal = document.getElementById('nama').value.trim();
-                if (!namaVal) { alert("Silakan isi nama lengkap terlebih dahulu."); return; }
-            }
-            if (stepTujuan > 2) {
-                const waVal = document.getElementById('whatsapp').value.trim();
-                if (!waVal) { alert("Silakan isi nomor WhatsApp terlebih dahulu."); return; }
-            }
-            if (stepTujuan > 3) {
-                const alamatVal = document.getElementById('alamat').value.trim();
-                if (!alamatVal) { alert("Silakan isi domisili terlebih dahulu."); return; }
-            }
-            if (stepTujuan > 4) {
-                const angkatanVal = document.getElementById('angkatan').value.trim();
-                if (!angkatanVal) { alert("Silakan isi angkatan Gontor terlebih dahulu."); return; }
-            }
+            if (stepTujuan > 1 && !document.getElementById('nama').value.trim()) { alert("Silakan isi nama lengkap terlebih dahulu."); return; }
+            if (stepTujuan > 2 && !document.getElementById('whatsapp').value.trim()) { alert("Silakan isi nomor WhatsApp terlebih dahulu."); return; }
+            if (stepTujuan > 3 && !document.getElementById('alamat').value.trim()) { alert("Silakan isi domisili terlebih dahulu."); return; }
+            if (stepTujuan > 4 && !document.getElementById('angkatan').value.trim()) { alert("Silakan angkatan Gontor terlebih dahulu."); return; }
 
-            // Sembunyikan semua step form
             for (let i = 1; i <= 5; i++) {
                 document.getElementById('step-' + i).classList.remove('active-step');
             }
-            // Tampilkan step tujuan
             document.getElementById('step-' + stepTujuan).classList.add('active-step');
         }
 
@@ -310,7 +312,6 @@
                 .then(res => res.json())
                 .then(data => {
                     alert("Konfirmasi kehadiran berhasil dikirim! Jazakumullahu khairan.");
-                    // Reset form kembali ke step 1
                     document.getElementById('rsvp-form').reset();
                     if (namaTamu) document.getElementById('nama').value = namaTamu.replace(/_/g, ' ');
                     lanjutStep(1);
