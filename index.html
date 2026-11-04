@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d2818; overflow: hidden; }
+        <body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white h-screen flex flex-col justify-between"> }
         .font-serif-custom { font-family: 'Playfair Display', serif; }
         .page-section { display: none; }
         .page-section.active { display: block; }
@@ -19,8 +19,8 @@
         .form-step.active-step { display: block; }
     </style>
 </head>
-<body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white h-screen flex flex-col justify-between">
-
+<body class="bg-[#0d2818] text-emerald-50 antialiased selection:bg-amber-500 selection:text-white min-h-screen flex flex-col justify-between">
+    
     <!-- HALAMAN SAMPUL (COVER) -->
     <section id="page-cover" class="page-section active fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#091b10] px-6 text-center transition-all duration-700">
         <div class="max-w-md space-y-4 w-full">
@@ -65,6 +65,9 @@
                 <p class="text-emerald-200/90 text-sm max-w-md mx-auto">
                     Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung baru.
                 </p>
+                <div class="pt-2">
+                    <img src="SEKRET-IKPM.jpg" alt="Peresmian Gedung Sekretariat IKPM Banten" class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover">
+        </div>
                 <div class="pt-2">
                     <p class="text-emerald-300 text-xs">Kepada Yth:</p>
                     <span id="nama-tamu-main" class="font-semibold text-amber-300 text-lg">Keluarga Besar Alumni Gontor</span>
