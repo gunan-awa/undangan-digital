@@ -84,18 +84,17 @@
                     Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung Sekretariat IKPM BANTEN
                 </p>
 
-                <!-- FOTO GEDUNG SEKRETARIAT (UTUH & BERSIH) -->
-                <div class="pt-2">
+                <!-- FOTO GEDUNG SEKRETARIAT DENGAN TOMBOL RSVP MENGAMBANG DI DALAMNYA -->
+                <div class="pt-2 relative">
                     <img src="SEKRET-IKPM.jpeg" alt="Peresmian Gedung Sekretariat IKPM Banten" class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover" onerror="this.src='sekret-ikpm.jpg'; this.onerror=function(){this.style.display='none';};">
+                   
+                    <!-- TOMBOL MENGAMBANG DI POJOK KANAN ATAS -->
+                    <div class="absolute top-4 right-4 z-10">
+                        <button onclick="gantiHalaman('rsvp')" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-4 py-2 rounded-xl text-xs shadow-2xl transition transform hover:scale-105 cursor-pointer flex items-center space-x-1.5 border border-amber-300/60 backdrop-blur-md">
+                            <span>📝 RSVP DISINI</span>
+                        </button>
+                    </div>
                 </div>
-
-                <!-- TOMBOL MENUJU HALAMAN RSVP DI BAWAH FOTO -->
-                <div class="pt-2">
-                    <button onclick="gantiHalaman('rsvp')" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold py-3 rounded-xl text-sm shadow-lg transition transform hover:scale-105 cursor-pointer flex items-center justify-center space-x-2">
-                        <span>✍️ Konfirmasi Kehadiran (RSVP)</span>
-                    </button>
-                </div>
-
                 <div class="pt-2">
                     <p class="text-emerald-300 text-xs">Kepada Yth:</p>
                     <span id="nama-tamu-main" class="font-semibold text-amber-300 text-lg">Keluarga Besar Alumni Gontor</span>
@@ -136,14 +135,8 @@
 
         <!-- HALAMAN 3: RSVP & BUKU TAMU -->
         <div id="page-rsvp" class="page-section space-y-6">
-            <div class="bg-[#113822]/80 border border-emerald-800/60 p-6 rounded-2xl shadow-xl space-y-6 relative pt-10">
-                
-                <!-- TULISAN MENGAMBANG DI ATAS KOLOM ISIAN -->
-                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-amber-500 text-stone-950 font-bold px-4 py-1 rounded-full text-xs shadow-md tracking-wide uppercase">
-                    Silahkan diisi
-                </div>
-
-                <div class="text-center pt-2">
+            <div class="bg-[#113822]/80 border border-emerald-800/60 p-6 rounded-2xl shadow-xl space-y-6">
+                <div class="text-center">
                     <h3 class="font-serif-custom text-2xl text-amber-100 mb-1">Konfirmasi Kehadiran</h3>
                     <p class="text-emerald-300 text-xs">Silakan isi formulir secara bertahap.</p>
                 </div>
@@ -155,7 +148,7 @@
                     <div id="step-1" class="form-step active-step space-y-3">
                         <label class="block text-xs text-emerald-300">Langkah 1 dari 5: Nama Lengkap & Gelar</label>
                         <input type="text" id="nama" required placeholder="Contoh: Ustadz Ahmad, S.Pd" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
-                        <button type="button" onclick="lanjutStep(2)" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md cursor-pointer">
+                        <button type="button" onclick="lanjutStep(2)" class="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                             Next ➡️
                         </button>
                     </div>
@@ -165,10 +158,10 @@
                         <label class="block text-xs text-emerald-300">Langkah 2 dari 5: Nomor WhatsApp</label>
                         <input type="tel" id="whatsapp" required placeholder="Contoh: 081234567890" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                         <div class="flex gap-2">
-                            <button type="button" onclick="lanjutStep(1)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700 cursor-pointer">
+                            <button type="button" onclick="lanjutStep(1)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700">
                                 ⬅️ Kembali
                             </button>
-                            <button type="button" onclick="lanjutStep(3)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md cursor-pointer">
+                            <button type="button" onclick="lanjutStep(3)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                                 Next ➡️
                             </button>
                         </div>
@@ -179,10 +172,10 @@
                         <label class="block text-xs text-emerald-300">Langkah 3 dari 5: Alamat / Domisili / Korda</label>
                         <input type="text" id="alamat" required placeholder="Contoh: Serang / Kota Cilegon" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                         <div class="flex gap-2">
-                            <button type="button" onclick="lanjutStep(2)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700 cursor-pointer">
+                            <button type="button" onclick="lanjutStep(2)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700">
                                 ⬅️ Kembali
                             </button>
-                            <button type="button" onclick="lanjutStep(4)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md cursor-pointer">
+                            <button type="button" onclick="lanjutStep(4)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                                 Next ➡️
                             </button>
                         </div>
@@ -193,10 +186,10 @@
                         <label class="block text-xs text-emerald-300">Langkah 4 dari 5: Tahun Lulusan / Angkatan Gontor</label>
                         <input type="text" id="angkatan" required placeholder="Contoh: 2010 (Gontor 1 / Darussalam)" class="w-full bg-[#091b10] border border-emerald-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
                         <div class="flex gap-2">
-                            <button type="button" onclick="lanjutStep(3)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700 cursor-pointer">
+                            <button type="button" onclick="lanjutStep(3)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700">
                                 ⬅️ Kembali
                             </button>
-                            <button type="button" onclick="lanjutStep(5)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md cursor-pointer">
+                            <button type="button" onclick="lanjutStep(5)" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                                 Next ➡️
                             </button>
                         </div>
@@ -210,10 +203,10 @@
                             <option value="Berhalangan">Berhalangan Hadir</option>
                         </select>
                         <div class="flex gap-2 pt-2">
-                            <button type="button" onclick="lanjutStep(4)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700 cursor-pointer">
+                            <button type="button" onclick="lanjutStep(4)" class="w-1/3 bg-emerald-900/60 hover:bg-emerald-900 text-emerald-200 font-semibold py-2.5 rounded-lg text-sm transition border border-emerald-700">
                                 ⬅️ Kembali
                             </button>
-                            <button type="submit" id="btn-submit" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md cursor-pointer">
+                            <button type="submit" id="btn-submit" class="w-2/3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-2.5 rounded-lg text-sm transition shadow-md">
                                 Kirim Konfirmasi ✅
                             </button>
                         </div>
@@ -236,15 +229,15 @@
     <!-- MENU NAVIGASI BAWAH (FIXED NAVBAR) -->
     <nav id="bottom-nav" class="hidden fixed bottom-0 left-0 right-0 bg-[#091b10] border-t border-emerald-800/60 py-3 px-4 shadow-2xl z-40">
         <div class="max-w-md mx-auto flex justify-around items-center text-xs">
-            <button onclick="gantiHalaman('home')" id="nav-home" class="flex flex-col items-center text-amber-400 font-semibold transition cursor-pointer">
+            <button onclick="gantiHalaman('home')" id="nav-home" class="flex flex-col items-center text-amber-400 font-semibold transition">
                 <span class="text-lg">🏠</span>
                 <span>Beranda</span>
             </button>
-            <button onclick="gantiHalaman('schedule')" id="nav-schedule" class="flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition cursor-pointer">
+            <button onclick="gantiHalaman('schedule')" id="nav-schedule" class="flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition">
                 <span class="text-lg">📅</span>
                 <span>Waktu & Lokasi</span>
             </button>
-            <button onclick="gantiHalaman('rsvp')" id="nav-rsvp" class="flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition cursor-pointer">
+            <button onclick="gantiHalaman('rsvp')" id="nav-rsvp" class="flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition">
                 <span class="text-lg">✍️</span>
                 <span>RSVP & Tamu</span>
             </button>
@@ -292,11 +285,11 @@
 
             ['home', 'schedule', 'rsvp'].forEach(menu => {
                 const btn = document.getElementById('nav-' + menu);
-                btn.className = "flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition cursor-pointer";
+                btn.className = "flex flex-col items-center text-emerald-300/70 hover:text-amber-300 transition";
             });
 
             const activeBtn = document.getElementById('nav-' + halaman);
-            activeBtn.className = "flex flex-col items-center text-amber-400 font-semibold transition cursor-pointer";
+            activeBtn.className = "flex flex-col items-center text-amber-400 font-semibold transition";
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
