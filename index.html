@@ -71,7 +71,7 @@
         <div id="page-home" class="page-section space-y-6">
             <section class="text-center space-y-4">
                 <div class="flex items-center justify-center space-x-3">
-                    <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-14 h-14 object-contain rounded-lg shadow-lg shrink-0" onerror="this.style.display='none'">
+                    <img src="logo-ikpm.jpg" alt="Logo IKPM Banten" class="w-14 h-14 object-contain rounded-lg shadow-md shrink-0" onerror="this.style.display='none'">
                     <div class="text-left">
                         <h2 class="font-serif-custom text-xl font-bold text-amber-100 tracking-wide">IKPM BANTEN</h2>
                         <p class="text-[10px] text-emerald-300 uppercase tracking-wider leading-tight">IKATAN KELUARGA PONDOK MODERN CABANG BANTEN</p>
@@ -84,27 +84,23 @@
                     Dengan memohon rahmat dan ridho Allah SWT, kami mengundang seluruh keluarga besar alumni untuk hadir dalam acara peresmian gedung Sekretariat IKPM BANTEN
                 </p>
 
-                <!-- FOTO GEDUNG SEKRETARIAT -->
+                <!-- FOTO GEDUNG SEKRETARIAT DENGAN TOMBOL MENGAMBANG INTERAKTIF -->
                 <div class="pt-2 relative">
-                    <img src="SEKRET-IKPM.jpeg"
-                         alt="Peresmian Gedung Sekretariat IKPM Banten"
-                         class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover"
-                         onerror="this.src='sekret-ikpm.jpg'; this.onerror=function(){this.style.display='none';};">
+                    <!-- Tombol Mengambang yang Berfungsi untuk Mengisi RSVP -->
+                    <button onclick="gantiHalaman('rsvp')" class="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-5 py-2 rounded-full text-xs shadow-xl tracking-wide uppercase border border-amber-300 transition transform hover:scale-105 cursor-pointer flex items-center gap-1.5">
+                        <span>✍️</span> <span>Isi Konfirmasi Kehadiran</span>
+                    </button>
 
-                    <div class="absolute top-3 right-3 z-10 flex flex-col items-end gap-2">
-                        <div class="bg-[#091b10]/90 text-amber-100 text-[10px] sm:text-xs text-center px-3 py-2 rounded-lg shadow-lg border border-amber-400/50 leading-relaxed">
-                            Ingin hadir di acara ini?
-                            <br>
-                            Daftarkan kehadiran Anda di sini.
-                        </div>
-
-                        <button type="button"
-                                onclick="bukaKonfirmasi()"
-                                class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-[10px] sm:text-xs px-4 py-2.5 rounded-full shadow-xl border border-amber-200">
-                            KONFIRMASI KEHADIRAN
-                        </button>
-                    </div>
+                    <img src="SEKRET-IKPM.jpeg" alt="Peresmian Gedung Sekretariat IKPM Banten" class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover" onerror="this.src='sekret-ikpm.jpg'; this.onerror=function(){this.style.display='none';};">
                 </div>
+
+                <div class="pt-2">
+                    <p class="text-emerald-300 text-xs">Kepada Yth:</p>
+                    <span id="nama-tamu-main" class="font-semibold text-amber-300 text-lg">Keluarga Besar Alumni Gontor</span>
+                </div>
+            </section>
+        </div>
+
         <!-- HALAMAN 2: WAKTU & TEMPAT -->
         <div id="page-schedule" class="page-section space-y-6">
             <div class="text-center mb-4">
@@ -150,7 +146,7 @@
                     <p class="text-emerald-300 text-xs">Silakan isi formulir secara bertahap.</p>
                 </div>
 
-                <!-- Form Step-by-Step (Tanpa atribut required bawaan browser) -->
+                <!-- Form Step-by-Step -->
                 <form id="rsvp-form" onsubmit="kirimPesan(event)" class="space-y-4">
                     
                     <!-- STEP 1: NAMA LENGKAP -->
@@ -302,17 +298,7 @@
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function bukaKonfirmasi() {
-            for (let i = 1; i <= 5; i++) {
-                document.getElementById('step-' + i)
-                    .classList.remove('active-step');
-            }
-
-            document.getElementById('step-1')
-                .classList.add('active-step');
-
-            gantiHalaman('rsvp');
-        }
+        
         function tampilkanAlert(pesan, judul = "Informasi", tipe = "info") {
             const lama = document.getElementById("custom-alert");
             if (lama) lama.remove();
@@ -378,89 +364,92 @@
                overlay.remove();
            };
        }
+
         function lanjutStep(stepTujuan) {
-    if (stepTujuan > 1 && !document.getElementById('nama').value.trim()) {
-        tampilkanAlert("Silakan isi Nama Lengkap terlebih dahulu.");
-        return;
-    }
+            if (stepTujuan > 1 && !document.getElementById('nama').value.trim()) {
+                tampilkanAlert("Silakan isi Nama Lengkap terlebih dahulu.");
+                return;
+            }
 
-    if (stepTujuan > 2 && !document.getElementById('whatsapp').value.trim()) {
-        tampilkanAlert("Silakan isi Nomor WhatsApp terlebih dahulu.");
-        return;
-    }
+            if (stepTujuan > 2 && !document.getElementById('whatsapp').value.trim()) {
+                tampilkanAlert("Silakan isi Nomor WhatsApp terlebih dahulu.");
+                return;
+            }
 
-    if (stepTujuan > 3 && !document.getElementById('alamat').value.trim()) {
-        tampilkanAlert("Silakan isi Alamat / Domisili terlebih dahulu.");
-        return;
-    }
+            if (stepTujuan > 3 && !document.getElementById('alamat').value.trim()) {
+                tampilkanAlert("Silakan isi Alamat / Domisili terlebih dahulu.");
+                return;
+            }
 
-    if (stepTujuan > 4 && !document.getElementById('angkatan').value.trim()) {
-        tampilkanAlert("Silakan isi Tahun Lulusan / Angkatan Gontor terlebih dahulu.");
-        return;
-    }
+            if (stepTujuan > 4 && !document.getElementById('angkatan').value.trim()) {
+                tampilkanAlert("Silakan isi Tahun Lulusan / Angkatan Gontor terlebih dahulu.");
+                return;
+            }
 
-    for (let i = 1; i <= 5; i++) {
-        document.getElementById('step-' + i).classList.remove('active-step');
-    }
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('step-' + i).classList.remove('active-step');
+            }
 
-    document.getElementById('step-' + stepTujuan).classList.add('active-step');
-}
-
-function kirimPesan(e) {
-    e.preventDefault();
-
-    const btn = document.getElementById('btn-submit');
-    btn.innerText = "Mengirim...";
-    btn.disabled = true;
-
-    const formData = new FormData();
-    formData.append("nama", document.getElementById('nama').value);
-    formData.append("whatsapp", document.getElementById('whatsapp').value);
-    formData.append("alamat", document.getElementById('alamat').value);
-    formData.append("angkatan", document.getElementById('angkatan').value);
-    formData.append("kehadiran", document.getElementById('kehadiran').value);
-
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-    })
-    .then(data => {
-        tampilkanAlert(
-            "Konfirmasi kehadiran berhasil dikirim! Jazakumullahu khairan.",
-            "Berhasil",
-            "success"
-        );
-
-        document.getElementById('rsvp-form').reset();
-
-        if (namaTamu) {
-            document.getElementById('nama').value = namaTamu.replace(/_/g, ' ');
+            document.getElementById('step-' + stepTujuan).classList.add('active-step');
         }
 
-        lanjutStep(1);
+        function kirimPesan(e) {
+            e.preventDefault();
 
-        btn.innerText = "Kirim Konfirmasi ✅";
-        btn.disabled = false;
+            const btn = document.getElementById('btn-submit');
+            btn.innerText = "Mengirim...";
+            btn.disabled = true;
 
-        muatDaftarTamu();
-    })
-    .catch(err => {
-        console.error(err);
+            const formData = new FormData();
+            formData.append("nama", document.getElementById('nama').value);
+            formData.append("whatsapp", document.getElementById('whatsapp').value);
+            formData.append("alamat", document.getElementById('alamat').value);
+            formData.append("angkatan", document.getElementById('angkatan').value);
+            formData.append("kehadiran", document.getElementById('kehadiran').value);
 
-        tampilkanAlert(
-            "Gagal mengirim data. Silakan coba lagi.",
-            "Gagal",
-            "error"
-        );
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                return res.json();
+            })
+            .then(data => {
+                tampilkanAlert(
+                    "Konfirmasi kehadiran berhasil dikirim! Jazakumullahu khairan.",
+                    "Berhasil",
+                    "success"
+                );
 
-        btn.innerText = "Kirim Konfirmasi ✅";
-        btn.disabled = false;
-    });
-}        function muatDaftarTamu() {
+                document.getElementById('rsvp-form').reset();
+
+                if (namaTamu) {
+                    document.getElementById('nama').value = namaTamu.replace(/_/g, ' ');
+                }
+
+                lanjutStep(1);
+
+                btn.innerText = "Kirim Konfirmasi ✅";
+                btn.disabled = false;
+
+                muatDaftarTamu();
+            })
+            .catch(err => {
+                console.error(err);
+
+                tampilkanAlert(
+                    "Gagal mengirim data. Silakan coba lagi.",
+                    "Gagal",
+                    "error"
+                );
+
+                btn.innerText = "Kirim Konfirmasi ✅";
+                btn.disabled = false;
+            });
+        }
+
+        function muatDaftarTamu() {
             const container = document.getElementById('daftar-tamu');
             fetch(SCRIPT_URL)
                 .then(res => res.json())
@@ -474,7 +463,7 @@ function kirimPesan(e) {
                         let badgeColor = item.kehadiran === 'Hadir' ? 'bg-emerald-950 text-emerald-300 border-emerald-600' : 'bg-rose-950 text-rose-300 border-rose-600';
                         html += `
                             <div class="bg-[#091b10] border border-emerald-800 p-2.5 rounded-lg space-y-1">
-                                <div class="flex justify-name flex justify-between items-center">
+                                <div class="flex justify-between items-center">
                                     <span class="font-semibold text-white text-sm">${item.nama}</span>
                                     <span class="px-2 py-0.5 rounded border text-[10px] ${badgeColor}">${item.kehadiran}</span>
                                 </div>
