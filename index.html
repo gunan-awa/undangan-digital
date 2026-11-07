@@ -366,9 +366,10 @@
                 gantiHalaman('home');
             }, 700);
 
-            const audio = document.getElementById('background-audio');
-
-            audio.play().catch(error => console.log("Audio diblokir browser:", error));
+            // TAMPILKAN DAN PUTAR AUDIO YOUTUBE
+            document.getElementById('youtube-audio-container').style.display = 'block';
+            const iframe = document.getElementById('youtube-player');
+            iframe.src = "https://www.youtube.com/embed/eaiN206va2o?enablejsapi=1&autoplay=1&loop=1&playlist=eaiN206va2o";
 
             muatDaftarTamu();
         }
