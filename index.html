@@ -310,12 +310,11 @@
         </div>
     </nav>
 
-    <!-- AUDIO LATAR DARI YOUTUBE (DISEMBUNYIKAN) -->
-    <div id="youtube-audio-container" style="display: none;">
-        <iframe id="youtube-player" width="100" height="100" 
-            src="https://www.youtube.com/embed/eaiN206va2o?enablejsapi=1&loop=1&playlist=eaiN206va2o" 
-            allow="autoplay">
-        </iframe>
+    <!-- AUDIO LATAR HYMNE PONDOK -->
+    <audio id="background-audio" loop>
+        <source src="Hymne oh Pondokku (Orchest).mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutar audio.
+    </audio>
     </div>
     <!-- KOTAK POP-UP MODAL QR DONASI MENGAMBANG -->
     <div id="modal-donasi" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
@@ -366,10 +365,9 @@
                 gantiHalaman('home');
             }, 700);
 
-            // TAMPILKAN DAN PUTAR AUDIO YOUTUBE
-            document.getElementById('youtube-audio-container').style.display = 'block';
-            const iframe = document.getElementById('youtube-player');
-            iframe.src = "https://www.youtube.com/embed/eaiN206va2o?enablejsapi=1&autoplay=1&loop=1&playlist=eaiN206va2o";
+            // PUTAR AUDIO HYMNE PONDOK OTOMATIS SAAT DIBUKA
+            const audio = document.getElementById('background-audio');
+            audio.play().catch(error => console.log("Audio diblokir browser:", error));
 
             muatDaftarTamu();
         }
