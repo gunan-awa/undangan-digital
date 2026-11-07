@@ -109,22 +109,16 @@
                          class="w-full rounded-2xl shadow-xl border border-emerald-800/60 object-cover"
                          onerror="this.src='sekret-ikpm.jpg'; this.onerror=function(){this.style.display='none';};">
 
-                    <div class="absolute top-3 right-3 z-10 flex flex-col items-end gap-2">
-
-                        <div class="bg-[#091b10]/90 text-amber-100 text-[10px] sm:text-xs text-center px-3 py-2 rounded-lg shadow-lg border border-amber-400/50 leading-relaxed">
-                            Ingin hadir di acara ini?
-                            <br>
-                            Daftarkan kehadiran Anda di sini.
-                        </div>
-
-                        <button type="button"
-                                onclick="bukaKonfirmasi()"
-                                class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-[10px] sm:text-xs px-4 py-2.5 rounded-full shadow-xl border border-amber-200">
-                            KONFIRMASI KEHADIRAN
-                        </button>
-
-                    </div>
-                </div>
+                   <div class="absolute top-3 right-3 z-10 flex flex-col items-end gap-2">
+                       <div class="bg-[#091b10]/90 text-amber-100 text-[10px] sm:text-xs text-center px-3 py-2 rounded-lg shadow-lg border border-amber-400/50 leading-relaxed">
+                           Ingin Konfirmasi atau Berdonasi? <br> Silakan pilih menu di bawah.
+                       </div>
+                       <!-- KONTAINER TOMBOL BERBINGKAI BERDAMPINGAN -->
+                       <div class="flex items-center gap-2">
+                            <button type="button" onclick="bukaKonfirmasi()" class="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-[10px] sm:text-xs px-3 py-2.5 rounded-full shadow-xl border border-amber-200"> KONFIRMASI KEHADIRAN </button>
+                            <a href="#donasi" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[10px] sm:text-xs px-3 py-2.5 rounded-full shadow-xl border border-amber-300 text-center"> DONASI KLIK DISINI </a>
+                       </div>
+                   </div>
 
             </section>
         </div>
