@@ -310,11 +310,13 @@
         </div>
     </nav>
 
-    <!-- AUDIO LATAR -->
-    <audio id="background-audio" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-creativeminds.mp3" type="audio/mpeg">
-    </audio>
-
+    <!-- AUDIO LATAR DARI YOUTUBE (DISEMBUNYIKAN) -->
+    <div id="youtube-audio-container" style="display: none;">
+        <iframe id="youtube-player" width="100" height="100" 
+            src="https://www.youtube.com/embed/eaiN206va2o?enablejsapi=1&loop=1&playlist=eaiN206va2o" 
+            allow="autoplay">
+        </iframe>
+    </div>
     <!-- KOTAK POP-UP MODAL QR DONASI MENGAMBANG -->
     <div id="modal-donasi" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
         <div class="bg-[#113822] border border-amber-500 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center space-y-4 relative">
